@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Form submission powered by FORMALISER.NET</title>
+    <style>
+        body {
+            background-color: #1A1A1D;
+            color: #FFF;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            padding: 100px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: #FFF;
+            text-decoration: dotted underline;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            width: 13.5rem;
+            border-radius: 15px;
+            transition: all 0.4s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        button {
+            background-color: #1A1A1D;
+            color: #FFF;
+            border: 1px solid #FFF;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #FFF;
+            color: #1A1A1D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oops!</h1>
+        <p>
+            Something went wrong while sending your message. Please try again later.
+            <br>
+            If the problem persists, please contact the website administrator, or us at <a href="mailto:info@formaliser.net">info@formaliser.net</a>.
+        </p>
+        <a href="formaliser.net" target="_blank"><img src="/refimg.png" alt="Formaliser.net logo"></a>
+        <br>
+        <br>
+        <button onclick="window.history.back();">Go back</button>
+    </div>
+</body>
+</html>

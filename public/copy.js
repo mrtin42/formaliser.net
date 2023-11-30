@@ -1,0 +1,3 @@
+function CopyTextToClipboard(text) {
+    document
+}

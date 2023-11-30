@@ -1,0 +1,33 @@
+.tooltip {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    margin: 2px;
+    padding: 5px;
+    font-family: monospace;
+    width: 120px;
+    bottom: 100%;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.tooltip:hover {
+    cursor: pointer;
+
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    border-radius: 25px;
+    opacity: 1;
+}

@@ -1,0 +1,20 @@
+.header {
+    background: url(/bg.png);
+    background-size: cover;
+    background-position: center;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title {
+    color: #fff;
+    font-size: 7rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
+}

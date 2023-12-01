@@ -1,6 +1,7 @@
 import Email from "@/emails/incoming";
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
+import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 export const dynamic = 'force-dynamic';
@@ -15,22 +16,19 @@ export async function POST(req: Request) {
 
     if (sendto === null) {
         // send norecipient.html
-        const filepath = path.join(process.cwd(), 'emails', 'config', 'html', 'norecipient.html');
-        const html = fs.readFileSync(filepath, 'utf8');
+        const html: string = await axios.get('https://formaliser.net/emptyfields.html');
         return new Response(html, { status: 500 });
     }
 
     if (!name || !email || !subject || !message) {
         // send missingfields.html
-        const filepath = path.join(process.cwd(), 'emails', 'config', 'html', 'emptyfields.html');
-        const html = fs.readFileSync(filepath, 'utf8');
+        const html: string = await axios.get('https://formaliser.net/emptyfields.html');
         return new Response(html, { status: 500 });
     }
 
     if (!email.includes('@') || !email.includes('.')) {
         // send invalidemail.html
-        const filepath = path.join(process.cwd(), 'emails', 'config', 'html', 'invalidemail.html');
-        const html = fs.readFileSync(filepath, 'utf8');
+        const html: string = await axios.get('https://formaliser.net/invalidemail.html');
         return new Response(html, { status: 500 });
     }
 
@@ -55,16 +53,14 @@ export async function POST(req: Request) {
         text: plain,
     }
 
-    await transporter.sendMail(emailOptions, (err, info) => {
+    transporter.sendMail(emailOptions, async (err, info) => {
         if (err) {
             console.log(err);
-            const filepath = path.join(process.cwd(), 'emails', 'config', 'html', 'servererror.html');
-            const html = fs.readFileSync(filepath, 'utf8');
+            const html: string = await axios.get('https://formaliser.net/servererror.html');
             return new Response(html, { status: 500 });
         }
         console.log(info);
-        const filepath = path.join(process.cwd(), 'emails', 'config', 'html', 'success.html');
-        const html = fs.readFileSync(filepath, 'utf8');
+        const html: string = await axios.get('https://formaliser.net/success.html');
         return new Response(html, { status: 200 });
     });
 }

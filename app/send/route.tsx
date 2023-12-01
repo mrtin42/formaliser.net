@@ -4,19 +4,8 @@ import nodemailer from 'nodemailer';
 import axios from 'axios';
 export const dynamic = 'force-dynamic';
 
-let stream;
-let crypto;
-
-try {
-    // maybe vercel will stop crying about these modules
-    stream = require('stream');
-    crypto = require('crypto');
-} catch (error) {
-    // im assuming this just tells it to fuck all and carry on?
-}
-
-// avoid vercel serverless function timeout
-export const runtime = "edge";
+// export const runtime = "edge";
+// you know what, screw that ^ - it's just fucking nodemailer over. lets see if plain text rendering is the issue
 
 export async function POST(req: Request) {
     const { name, email, subject, message } = await req.json();
@@ -41,8 +30,8 @@ export async function POST(req: Request) {
         return new Response(html, { status: 500 });
     }
 
-    const html = render(Email({ name, email, subject, message }), { pretty: true });
-    const plain = render(Email({ name, email, subject, message }), { plainText: true });
+    const html = render(<Email name={name} email={email} subject={subject} message={message} />);
+    const plain = `NEW FORMALISER.NET MESSAGE\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}\nThis message is better viewed on a client that supports HTML emails.`
 
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,

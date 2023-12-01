@@ -2,8 +2,6 @@ import Email from "@/emails/incoming";
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
 export const dynamic = 'force-dynamic';
 
 // avoid vercel serverless function timeout

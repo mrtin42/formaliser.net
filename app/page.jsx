@@ -83,7 +83,7 @@ export default function Home() {
               <p className="text-3xl text-center text-gray-800 pt-3">Ready to simplify contact forms?</p>
               <p className="mt-6 text-xl text-center text-gray-800">Get started now by using the URL below as the action for your HTML form.</p>
               <div className={tooltipStyles.tooltip}>
-                <button className="text-xl text-center text-white-800 p-2 bg-gray-700 rounded-xl" onClick={() => {navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress');}}>
+                <button className="text-xl text-center text-white p-2 bg-gray-700 rounded-xl" onClick={() => {navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress');}}>
                   <code className="text-base">
                     https://formaliser.net/send?to=your@email
                   </code>

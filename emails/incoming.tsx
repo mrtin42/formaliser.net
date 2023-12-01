@@ -6,7 +6,7 @@ export default function Email({ name, email, subject, message }: { name: string,
         <>
             <Html lang="en">
                 <MailerHead />
-                {/* <Tailwind config={{theme: {extend: {fontFamily: {sans: ['Inter', 'sans-serif']}}}}}> */}
+                <Tailwind config={{theme: {extend: {fontFamily: {sans: ['Inter', 'sans-serif']}}}}}>
                     <div className="bg-gray-100">
                         <div className="container mx-auto px-4 font-sans w-10/12">
                             <header className="py-3 flex justify-center items-center">
@@ -35,7 +35,7 @@ export default function Email({ name, email, subject, message }: { name: string,
                             </footer>
                         </div>
                     </div>
-                {/* </Tailwind> */}
+                </Tailwind>
             </Html>
         </>
     )

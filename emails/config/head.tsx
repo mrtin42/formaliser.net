@@ -8,7 +8,6 @@ const MailerHead = () => {
             <link rel="icon" href="https://formaliser.net/favicon.ico" />
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
             {/* <link rel="stylesheet" href="https://beta.formaliser.net/failwind.css" /> */}
-            <script src="https://cdn.tailwindcss.com"></script>
         </Head>
     )
 }

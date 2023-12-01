@@ -1,4 +1,4 @@
-import { Html, Tailwind } from '@react-email/components'
+import { Html } from '@react-email/components'
 import MailerHead from './config/head'
 
 export default function Email({ name, email, subject, message }: { name: string, email: string, subject: string, message: string }) {

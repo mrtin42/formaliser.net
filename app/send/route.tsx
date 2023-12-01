@@ -73,6 +73,9 @@ import axios from 'axios';
 import util from 'util';
 import { NextRequest } from 'next/server';
 
+// prerender the email with ${name} ${email} ${subject} ${message} as placeholders
+const prerendered = render(<Email name="${name}" email="${email}" subject="${subject}" message="${message}" />);
+
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: 587,
@@ -104,17 +107,14 @@ export async function POST(req: NextRequest) {
             return new Response(html, { status: 500 });
         }
 
-        const [html, plain] = await Promise.all([
-            render(<Email name={name} email={email} subject={subject} message={message} />),
-            `NEW FORMALISER.NET MESSAGE\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}\nThis message is better viewed on a client that supports HTML emails.`,
-        ]);
+        const plain = `NEW FORMALISER.NET MESSAGE\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}\nThis message is better viewed on a client that supports HTML emails.`
 
         const emailOptions = {
             from: 'incoming@formaliser.net',
             to: sendto,
             replyTo: email,
             subject: `New message from ${name}`,
-            html: html,
+            html: prerendered,
             text: plain,
         };
 

@@ -8,7 +8,7 @@ export default function Email({ name, email, subject, message }: { name: string,
                 <MailerHead />
                 <Tailwind config={{theme: {extend: {fontFamily: {sans: ['Inter', 'sans-serif']}}}}}>
                     <div className="bg-gray-100">
-                        <div className="container mx-auto px-4 font-sans">
+                        <div className="container mx-auto px-4 font-sans w-10/12">
                             <header className="py-3 flex justify-center items-center">
                                 <div className="flex items-center">
                                     <img className="h-12" src="https://formaliser.net/formaliser.svg" alt="FORMALISER.NET" />
@@ -29,8 +29,9 @@ export default function Email({ name, email, subject, message }: { name: string,
                             <div className="py-4 flex justify-center items-center flex-col">
                                 <p className="text-gray-700 padding-1 py-0 my-1">Hit reply to respond to this message. The sender address will be automatically filled in by your email client.</p>
                             </div>
-                            <footer className="py-3 flex justify-center items-center">
+                            <footer className="py-3 flex flex-col justify-center items-center">
                                 <p className="text-gray-700 padding-1 py-0 my-1 text-xs italic">HTML webforms powered by <a className="text-blue-500 no-underline" href="https://formaliser.net">FORMALISER.NET</a></p>
+                                <p className="text-gray-700 padding-1 py-0 my-1 text-xs italic">To unsubscribe from these emails, remove our URL from your webform action attribute.</p>
                             </footer>
                         </div>
                     </div>

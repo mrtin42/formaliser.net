@@ -5,6 +5,9 @@ import fs from 'fs';
 import path from 'path';
 export const dynamic = 'force-dynamic';
 
+// avoid vercel serverless function timeout
+export const runtime = "edge";
+
 export async function POST(req: Request) {
     const { name, email, subject, message } = await req.json();
     const { searchParams } = new URL(req.url);

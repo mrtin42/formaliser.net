@@ -4,11 +4,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     width: 100vw;
     position: fixed;
     z-index: 100;
+}
+
+.navwrapper {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logoImg {
@@ -16,6 +23,12 @@
     width: 20rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+.logobg {
+    background-color: #fff;
+    border-radius: 25px;
+    transition: all 0.2s ease-in-out;
 }
 
 .links {
@@ -26,7 +39,6 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    color: black;
 }
 
 .link {
@@ -34,7 +46,6 @@
     margin-left: 1rem;
     font-size: 2rem;
     text-decoration: none;
-    color: black;
     font-weight: bold;
     border-radius: 10px;
     transition: all 0.2s ease-in-out;

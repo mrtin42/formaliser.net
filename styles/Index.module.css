@@ -1,8 +1,12 @@
+.body {
+    background: linear-gradient(109.6deg, rgb(48, 207, 208) 11.2%, rgb(51, 8, 103) 92.5%);
+}
+
 .header {
-    background: url(/bg.png);
+    background: transparent;
     background-size: cover;
     background-position: center;
-    height: 25rem;
+    height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +26,7 @@
     line-height: 1;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
+    text-shadow: 7px 7px 15px rgba(0, 0, 0, 1);
 }
 
 .subtitle {
@@ -42,4 +46,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.card {
+    background: #ffffff55;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardTitle {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
 }

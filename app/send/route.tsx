@@ -71,6 +71,7 @@ import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
 import util from 'util';
+import { NextRequest } from 'next/server';
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -87,10 +88,10 @@ const axiosGet = async (url: string) => {
     return data;
 };
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
         const { name, email, subject, message } = await req.json();
-        const { searchParams } = new URL(req.url);
+        const searchParams = req.nextUrl.searchParams;
         const sendto = searchParams.get('to');
 
         if (sendto === null || !name || !email || !subject || !message) {
@@ -113,7 +114,7 @@ export async function POST(req: Request) {
             to: sendto,
             replyTo: email,
             subject: `New message from ${name}`,
-            html,
+            html: html,
             text: plain,
         };
 

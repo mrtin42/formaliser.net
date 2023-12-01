@@ -28,8 +28,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# bloody hell i need to remember to add this to my gitignore every time that was fucking scary
+.env
 
 # vercel
 .vercel

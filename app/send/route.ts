@@ -4,6 +4,17 @@ import nodemailer from 'nodemailer';
 import axios from 'axios';
 export const dynamic = 'force-dynamic';
 
+let stream;
+let crypto;
+
+try {
+    // maybe vercel will stop crying about these modules
+    stream = require('stream');
+    crypto = require('crypto');
+} catch (error) {
+    // im assuming this just tells it to fuck all and carry on?
+}
+
 // avoid vercel serverless function timeout
 export const runtime = "edge";
 

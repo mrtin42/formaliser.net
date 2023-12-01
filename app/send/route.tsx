@@ -26,7 +26,7 @@ export async function POST(req: Request) {
 
     if (!email.includes('@') || !email.includes('.')) {
         // send invalidemail.html
-        const html: string = await axios.get('https://formaliser.net/invalidemail.html');
+        const html: string = await axios.get('https://beta.formaliser.net/invalidemail.html');
         return new Response(html, { status: 500 });
     }
 
@@ -51,14 +51,15 @@ export async function POST(req: Request) {
         text: plain,
     }
 
-    transporter.sendMail(emailOptions, async (err, info) => {
+    await transporter.sendMail(emailOptions, async (err, info) => {
         if (err) {
             console.log(err);
-            const html: string = await axios.get('https://formaliser.net/servererror.html');
+            const html: string = await axios.get('https://beta.formaliser.net/servererror.html');
             return new Response(html, { status: 500 });
         }
+        console.log(err);
         console.log(info);
-        const html: string = await axios.get('https://formaliser.net/success.html');
+        const html: string = await axios.get('https://beta.formaliser.net/success.html');
         return new Response(html, { status: 200 });
     });
 }

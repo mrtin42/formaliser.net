@@ -1,6 +1,14 @@
 /* tailwind taking its merry time to compile  */
 /* gonna have to take this into my own hands */
 
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .bg-gray-100 {
     background-color: #f7fafc;
 }

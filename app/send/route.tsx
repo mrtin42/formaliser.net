@@ -3,13 +3,14 @@ import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
 import { NextRequest } from 'next/server';
+const qs = require('querystring');
 
 // ---------------------------------------------------------------------------------------------
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -22,8 +23,14 @@ const axiosGet = async (url: string) => {
 };
 
 export async function POST(req: NextRequest) {
+
+
     try {
-        const { name, email, subject, message } = await req.json();
+        const formData = await req.formData();
+        const name: any = formData.get('name');
+        const email: any = formData.get('email');
+        const subject: any = formData.get('subject');
+        const message: any = formData.get('message');
         const searchParams = req.nextUrl.searchParams;
         const sendto = searchParams.get('to');
 
@@ -51,10 +58,11 @@ export async function POST(req: NextRequest) {
         console.log('Email plain text render successful.')
 
         const emailOptions = {
-            from: 'FORMALISER.NET Form <incoming@formaliser.net>',
+            from: 'incoming@formaliser.net',
+            sender: 'FORMALISER.NET <incoming@formaliser.net>',
             to: sendto,
             replyTo: `${name} <${email}>`, // this is the only way to get the name to show up in the reply-to field
-            subject: `New message from ${name}`,
+            subject: `${subject} (via FORMALISER.NET)`,
             html: html,
             text: plain,
         };

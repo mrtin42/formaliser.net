@@ -10,9 +10,11 @@ export default function Navbar() {
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
         // Change 10 to your desired scroll position
-        setIsScrolled(scrollPosition > 10);
+        setIsScrolled(scrollPosition > 40);
       };
-  
+      
+      handleScroll();
+
       window.addEventListener('scroll', handleScroll);
   
       // Cleanup
@@ -36,15 +38,13 @@ export default function Navbar() {
                     </Link>
                 </div>
                 <div className={styles.links}>
-                    <Link className={styles.link} href="/docs">
-                        Docs
-                    </Link>
-                    <Link className={styles.link} href="/pricing">
-                        Pricing
+                    <Link className={styles.link} href="/get-started">
+                        Get Started
                     </Link>
                     <Link className={styles.link} href="/contact">
                         Contact
                     </Link>
+                    
                 </div>
             </div>
         </nav>

@@ -1,12 +1,13 @@
 .body {
     background: linear-gradient(109.6deg, rgb(48, 207, 208) 11.2%, rgb(51, 8, 103) 92.5%);
+    background-attachment: fixed;
 }
 
 .header {
     background: transparent;
     background-size: cover;
     background-position: center;
-    height: 45vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,6 +64,11 @@
     font-size: 2rem;
     text-align: center;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
+}
+
+.cta {
     font-family: 'Poppins', sans-serif;
     text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
 }

@@ -65,7 +65,7 @@ export default function Home() {
             <div className={styles.body}>
                 <Navbar />
                 <header className={[styles.header, 'flex flex-col items-center justify-center w-full bg-slate-900'].join(' ')}>
-                    <p className="pt-7" style={{color: 'transparent'}}>.</p>
+                    <p className="md:pt-7" style={{color: 'transparent'}}>.</p>
                     <h1 className={[styles.title, poppinsBold.className].join(' ')}>
                         FORMALISER.NET
                     </h1>
@@ -73,7 +73,7 @@ export default function Home() {
                         The simplest backend for your HTML contact forms.
                     </p>
                     <div className={tooltipStyles.tooltip}>
-                        <button className="text-xl text-center text-white-800 p-2 bg-gray-700 rounded-xl" onClick={() => {navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000);}}>
+                        <button className="text-xl text-center text-white-800 md:p-2 bg-gray-700 rounded-xl" onClick={() => {navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000);}}>
                         <code className="text-base">
                             {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
                         </code>
@@ -82,13 +82,13 @@ export default function Home() {
                     </div>
                 </header>
                 <main className={[styles.main, 'flex flex-col items-center justify-center w-full'].join(' ')}>
-                    <div className="flex flex-row items-center justify-center w-full p-10">
-                        <div id="code" className='flex flex-col items-center justify-center w-full p-2 bg-slate-900 rounded-xl'>
-                            <div className="block w-full p-2 text-left font-mono">
+                    <div className="flex flex-row items-center justify-center w-full md:p-10">
+                        <div id="code" className='flex flex-col items-center justify-center w-full md:p-2 bg-slate-900 md:rounded-xl'>
+                            <div className="block md:w-full md:p-2 md:text-left font-mono">
                                 <p>index.html</p>
                             </div>
                             <hr className="w-full" />
-                            <div className="block w-full p-2 text-left font-mono">
+                            <div className="block md:w-full md:p-2 text-left font-mono">
                                 <code className="text-base" lang='html' style={{fontSize: '0.8rem'}}>
                                     {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
                                     <br />
@@ -97,27 +97,27 @@ export default function Home() {
                                     {`</form>                                                             `}
                                 </code>
                             </div>
-                            <p className="text-xs text-center text-white-800">that's it.</p>
+                            <p className="md:text-xs md:text-center text-white-800">that's it.</p>
                         </div>
-                        <div className='flex flex-col items-center justify-center w-full p-10 notgrid'>
+                        <div className='flex flex-col items-center justify-center w-full md:p-10 notgrid'>
                             <h2 className={[styles.subtitle, poppins.className].join(' ')}>
                                 No more PHP, Node, or Python. We handle the backend for you.
                             </h2>
-                            <p className="text-lg text-center text-white-800">
+                            <p className="md:text-lg text-center text-white-800">
                                 Just add a few lines of code to your HTML form, and you're good to go. We'll take care of the rest. You focus on what you're making, and we'll focus on making sure people can reach you.
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-row items-center justify-center w-full p-10 notgrid">
-                        <div className='flex flex-col items-center justify-center w-full p-10 notgrid'>
+                    <div className="flex flex-row items-center justify-center w-full md:p-10 notgrid">
+                        <div className='flex flex-col items-center justify-center w-full md:p-10 notgrid'>
                             <h2 className={[styles.subtitle, poppins.className].join(' ')}>
                                 Rapid parsing and delivery of your form data, powered by Resend.com.
                             </h2>
-                            <p className="text-lg text-center text-white-800">
-                                We use Resend.com's <Link className=' underline hover:no-underline' href="https://react.email/">React-Email</Link> to parse your form data and their powerful SMTP servers to deliver it to you in a simple HTML format and a plain text fallback, meaning you can rest assured that the best network of servers in the world is making contact forms work for you, as well as all of your devices. Even your wearable devices.
+                            <p className="md:text-lg text-center text-white-800">
+                                We use Resend.com's <Link className=' underline md:hover:no-underline' href="https://react.email/">React-Email</Link> to parse your form data and their powerful SMTP servers to deliver it to you in a simple HTML format and a plain text fallback, meaning you can rest assured that the best network of servers in the world is making contact forms work for you, as well as all of your devices. Even your wearable devices.
                             </p>
                         </div>
-                        <div id="mail-iframe" className='flex flex-col items-center justify-center w-full p-2 bg-slate-900 rounded-xl'>
+                        <div id="mail-iframe" className='flex flex-col items-center justify-center w-full md:p-2 bg-slate-900 md:rounded-xl'>
                             <Email name="John Doe" email="doej@example.net" subject='Hello' message='Hello world!' />
                         </div>
                     </div>

@@ -29,7 +29,12 @@ export async function POST(req: NextRequest) {
         const formData = await req.formData();
         const name: any = formData.get('name');
         const email: any = formData.get('email');
-        const subject: any = formData.get('subject');
+        try {
+            var subject: any = formData.get('subject');
+        } catch (error) {
+            console.log('No subject specified: defaulting to "No subject".')
+            var subject: any = 'No subject';
+        }
         const message: any = formData.get('message');
         const searchParams = req.nextUrl.searchParams;
         const sendto = searchParams.get('to');
@@ -73,7 +78,7 @@ export async function POST(req: NextRequest) {
             sender: 'FORMALISER.NET <incoming@formaliser.net>',
             to: sendto,
             replyTo: `${name} <${email}>`, // this is the only way to get the name to show up in the reply-to field
-            subject: `${subject} (via FORMALISER.NET)`,
+            subject: `${subject ? subject : 'New Webform Submission'} - FORMALISER.NET`,
             html: html,
             text: plain,
         };

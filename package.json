@@ -1,13 +1,12 @@
 {
   "name": "formaliser",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "dev": "next dev -p 80",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "devmail": "email dev -p 3000"
+    "devmail": "email dev -p 420"
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",

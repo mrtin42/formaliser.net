@@ -37,6 +37,7 @@ export default function Home() {
                 <meta name="description" content="The simplest backend for your HTML contact forms." />
                 <link style={{}} rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" />
                 <link style={{}} rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
+                <link style={{}} rel="stylesheet" href="/failwind.css" />
                 <link style={{}} rel="icon" href="/favicon.ico" />
                 <meta name="keywords" content="formaliser, formaliser.net, formaliser, forms, form, html, backend, contact, contact form, contact form backend, html form, html form backend, html contact form" />
                 <meta name="author" content="MBFRIAS" />
@@ -185,7 +186,7 @@ export default function Home() {
                 </main>
                 <footer className={[styles.footer, 'flex flex-col items-center justify-center w-full h-3/10 bg-slate-900'].join(' ')}>
                     <div className='flex flex-col items-center justify-center w-full p-10 notgrid'>
-                        <Image src="/formaliser.svg" width={500} height={100} alt="FORMALISER.NET" />
+                        <Image src="/formaliser.svg" width={500} height={100} alt="FORMALISER.NET" className='shadow-lg shadow-slate-300'/>
                         <p className="text-lg text-center text-white-800">
                             © 2023 FORMALISER.NET
                         </p>

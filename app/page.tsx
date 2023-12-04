@@ -25,6 +25,15 @@ const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
 // }
 
+// HELLO MARTIN WHEN YOU SEE THIS NEXT 
+//
+// its still martin im just writing right b4 bed lol
+// remember that ur doijg the whole prefix everything
+// with md: thing cos yoy finally wctuslly fot round
+// to reading tailwinds docs
+//
+// thanks see yoy tuesday
+
 export default function Home() {
     const [isCopied, setIsCopied] = useState(false);
     

@@ -30,6 +30,12 @@
     text-shadow: 7px 7px 15px rgba(0, 0, 0, 1);
 }
 
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+}
+
 .subtitle {
     color: #fff;
     font-size: 2rem;
@@ -37,6 +43,13 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 768px) {
+    .subtitle {
+        font-size: 1rem;
+        margin-inline: 1rem;
+    }
 }
 
 .copybox {
@@ -49,6 +62,12 @@
     align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+    .copybox {
+        margin-inline: 1rem;
+    }
+}
+
 .card {
     background: #ffffff55;
     padding: 1rem;
@@ -57,6 +76,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        margin-inline: 1rem;
+    }
 }
 
 .cardTitle {
@@ -71,4 +96,10 @@
 .cta {
     font-family: 'Poppins', sans-serif;
     text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 768px) {
+    .cta {
+        font-size: 1rem;
+    }
 }

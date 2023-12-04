@@ -64,7 +64,7 @@ export default function Home() {
             </Head>
             <div className={styles.body}>
                 <Navbar />
-                <header className={[styles.header, 'flex flex-col items-center justify-center w-full h-screen bg-slate-900'].join(' ')}>
+                <header className={[styles.header, 'flex flex-col items-center justify-center w-full bg-slate-900'].join(' ')}>
                     <p className="pt-7" style={{color: 'transparent'}}>.</p>
                     <h1 className={[styles.title, poppinsBold.className].join(' ')}>
                         FORMALISER.NET

@@ -51,8 +51,19 @@ export async function POST(req: NextRequest) {
             const html = await axiosGet('https://beta.formaliser.net/invalidemail.html');
             return new Response(html, { status: 400 });
         }
+        let additionalFields = '';
+        for (const [key, value] of formData.entries()) {
+            if (key !== 'name' && key !== 'email' && key !== 'subject' && key !== 'message') {
+                additionalFields += `
+                    <div style="padding: 5px 0;">
+                        <p style="font-size: 16px; font-weight: 400; color: #374151; padding: 0; margin: 0;">${key}: ${value}</p>
+                    </div>
+                `;
+            }
+        }
+    
 
-        const html = render(<Email name={name} email={email} subject={subject} message={message} />);
+        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />);
         console.log('Email render successful.')
         const plain = `NEW FORMALISER.NET MESSAGE\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}\nThis message is better viewed on a client that supports HTML emails.`
         console.log('Email plain text render successful.')

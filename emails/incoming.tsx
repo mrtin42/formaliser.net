@@ -6,9 +6,10 @@ interface EmailProps {
     email: string
     subject?: string
     message: string
+    extra?: string
 }
 
-export default function Email({ name, email, subject, message }: EmailProps) {
+export default function Email({ name, email, subject, message, extra }: EmailProps) {
     return (
         <>
             <Html lang="en">
@@ -41,6 +42,15 @@ export default function Email({ name, email, subject, message }: EmailProps) {
                                 <p style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '10px 0' }}>* * *</p>
                                 <p style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '10px 0' }}>{message}</p>
                             </div>
+                            {extra ? (
+                                <>
+                                    <hr style={{ border: '1px solid #E5E7EB', width: '100%' }} />
+                                    <div style={{ padding: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                                        <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#111827', padding: 0, margin: 0 }}>Additional Fields</h3>
+                                        <div style={{ padding: '10px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }} dangerouslySetInnerHTML={{ __html: extra }} />
+                                    </div>
+                                </>
+                            ) : null}
                             <hr style={{ border: '1px solid #E5E7EB', width: '100%' }} />
                             <div style={{ padding: '10px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                                 <p style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '5px 0' }}>Hit reply to respond to this message. The sender address will be automatically filled in by your email client.</p>

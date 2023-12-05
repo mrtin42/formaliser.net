@@ -91,6 +91,8 @@ export default function Home() {
                     </div>
                 </header>
                 <main className={[styles.main, 'flex flex-col items-center justify-center w-full'].join(' ')}>
+                    {/* put a useless tag here just for scroll button */}
+                    <div data-use="scroller" id="features" className='h-0'></div>
                     <div className="flex flex-col md:flex-row items-center justify-center w-full px-3 md:p-10">
                         <div id="code" className='flex flex-col items-center justify-center w-full p-1 md:p-2 bg-slate-900 rounded-lg md:rounded-xl'>
                             <div className="block md:w-full md:p-2 md:text-left font-mono">

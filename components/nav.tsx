@@ -38,8 +38,8 @@ export default function Navbar() {
                     </Link>
                 </div>
                 <div className={styles.links}>
-                    <Link className={styles.link} href="/get-started">
-                        Get Started
+                    <Link className={styles.link} href="#features">
+                        Features
                     </Link>
                     <Link className={styles.link} href="/contact">
                         Contact

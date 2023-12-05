@@ -10,6 +10,13 @@
     transition: all 0.2s ease-in-out;
 }
 
+@media screen and (max-width: 768px) {
+    .nav {
+        position:static;
+        padding: 0 0;
+    }
+}
+
 
 .navwrapper {
     width: 100%;
@@ -30,7 +37,7 @@
 }
 
 .logoImg {
-    height: 5rem;
+    height: 3rem;
     width: 20rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -38,8 +45,8 @@
 
 @media screen and (max-width: 768px) {
     .logoImg {
-        height: 7rem;
-        width: 50rem;
+        height: 6rem;
+        width: 20rem;
         text-align: center;
     }
 }

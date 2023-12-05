@@ -14,6 +14,12 @@
     align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+    .header {
+        height: 14rem;
+    }
+}
+
 .sh {
     font-size: 0.25rem;
     color: #fff;
@@ -47,8 +53,25 @@
 
 @media screen and (max-width: 768px) {
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.25rem;
         margin-inline: 1rem;
+        
+    }
+}
+
+.FTsubtitle {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 768px) {
+    .FTsubtitle {
+        font-size: 2rem;
+        margin-inline: 1rem;  
     }
 }
 

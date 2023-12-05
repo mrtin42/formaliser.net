@@ -23,7 +23,7 @@ export default function Email({ name, email, subject, message }: EmailProps) {
                     </style>
                 </MailerHead> */}
                 {/* <body style={{ fontFamily: 'Inter, sans-serif' }}> */}
-                    <div style={{ backgroundColor: '#F3F4F6', borderRadius: '25px' }}>
+                    <div style={{ backgroundColor: '#F3F4F6', borderRadius: '0.5rem' }}>
                         <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0 20px' }}>
                             <header style={{ padding: '5px 0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>

@@ -71,7 +71,7 @@ export default function Home() {
                 <meta property="og:url" content="https://beta.formaliser.net" />
                 <meta property="og:site_name" content="FORMALISER.NET" />
             </Head>
-            <div className={styles.body}>
+            <div className={[styles.body, 'text-slate-100'].join(' ')}>
                 <Navbar />
                 <header className={[styles.header, 'flex flex-col items-center justify-center w-full bg-slate-900'].join(' ')}>
                     <p className="md:pt-7" style={{color: 'transparent'}}>.</p>

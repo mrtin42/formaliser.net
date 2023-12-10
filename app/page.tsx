@@ -27,7 +27,7 @@ const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
 export default function Home() {
     const [isCopied, setIsCopied] = useState(false);
-    
+
     return (
         <>
             <Head>
@@ -65,7 +65,7 @@ export default function Home() {
             <div className={[styles.body, 'text-slate-100'].join(' ')}>
                 <Navbar />
                 <header className={[styles.header, 'px-2 noneflex flex-col items-center justify-center w-full bg-slate-900'].join(' ')}>
-                    <p className="md:pt-7" style={{color: 'transparent'}}>.</p>
+                    <p className="md:pt-7" style={{ color: 'transparent' }}>.</p>
                     <h1 className={[styles.title, poppinsBold.className, 'hidden md:block'].join(' ')}>
                         FORMALISER.NET
                     </h1>
@@ -73,10 +73,10 @@ export default function Home() {
                         The simplest backend for your HTML contact forms.
                     </p>
                     <div className={tooltipStyles.tooltip}>
-                        <button className="text-xs md:text-lg text-center text-white-800 md:p-2 bg-gray-700 rounded-lg md:rounded-xl" onClick={() => {navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000);}}>
-                        <code className="text-base">
-                            {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
-                        </code>
+                        <button className="text-xs md:text-lg text-center text-white-800 md:p-2 bg-gray-700 rounded-lg md:rounded-xl" onClick={() => { navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000); }}>
+                            <code className="text-base">
+                                {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
+                            </code>
                         </button>
                         <span className={tooltipStyles.tooltiptext}>{isCopied ? 'Copied!' : 'Click to copy URL'}</span>
                     </div>
@@ -91,10 +91,10 @@ export default function Home() {
                             </div>
                             <hr className="w-full" />
                             <div className="block md:w-full md:p-2 text-left font-mono">
-                                <code className="text-base" lang='html' style={{fontSize: '0.8rem'}}>
+                                <code className="text-base" lang='html' style={{ fontSize: '0.8rem' }}>
                                     {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
                                     <br />
-                                    {`      <!-- your form fields -->                                   `}    
+                                    {`      <!-- your form fields -->                                   `}
                                     <br />
                                     {`</form>                                                             `}
                                 </code>
@@ -127,7 +127,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col md:flex-row items-center justify-center w-full p-1 py-3 md:p-10 notgrid">
                         <div className='flex flex-col items-center justify-center w-full p-2 bg-slate-900 rounded-xl'>
-                            <Image src="/replyto_eg.png" width={600} height={400} alt="screenshot of an email composer's metadata box, showing the recipient field filled as the email field from the webform submission." className='rounded-xl'/>
+                            <Image src="/replyto_eg.png" width={600} height={400} alt="screenshot of an email composer's metadata box, showing the recipient field filled as the email field from the webform submission." className='rounded-xl' />
                         </div>
                         <div className='flex flex-col items-center justify-center w-full md:p-10 notgrid'>
                             <h2 className={[styles.FTsubtitle, poppins.className].join(' ')}>
@@ -139,14 +139,14 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='flex flex-col md:flex-row w-full p-3 md:p-10 justify-center items-center'>
-                        <div className='flex flex-col items-center justify-center w-full mx-3 drop-shadow-2xl p-4 md:p-10 md:pb-0 my-2 md:my-0 rounded-2xl bg-slate-700'>
+                        <div className='flex flex-col items-center justify-center w-full mx-3 drop-shadow-2xl p-4 md:p-8 my-2 md:my-0 rounded-2xl bg-slate-700 transition-all duration-1000 hover:scale-105 hover:shadow-xl hover:shadow-slate-300/40'>
                             <h2 className={[styles.subtitle, poppinsBold.className].join(' ')}>
                                 We don't store your data. We don't even get a glimpse of your data.
                             </h2>
                             <p className="text-lg text-center text-white-800">
-                            Privacy and security is at the heart of what we do. We don't store anything that goes through our system beyond the runtime of the request, meaning we can't even charge you if we wanted to. We don't even store your email address - its always defined in the form action attribute, meaning it only exists in the runtime, meaning we're completely blind to it.                            </p>
+                                Privacy and security is at the heart of what we do. We don't store anything that goes through our system beyond the runtime of the request, meaning we can't even charge you if we wanted to. We don't even store your email address - its always defined in the form action attribute, meaning it only exists in the runtime, meaning we're completely blind to it.                            </p>
                         </div>
-                        <div className='flex flex-col items-center justify-center w-full mx-3 drop-shadow-2xl p-4 md:p-10 md:pb-0 my-2 md:my-0 rounded-2xl bg-slate-700'>
+                        <div className='flex flex-col items-center justify-center w-full mx-3 drop-shadow-2xl p-4 md:p-8 my-2 md:my-0 rounded-2xl bg-slate-700 transition-all duration-1000 hover:scale-105 hover:shadow-xl hover:shadow-slate-300/40'>
                             <h2 className={[styles.subtitle, poppinsBold.className].join(' ')}>
                                 We won't charge you a dime just to get your contact form working.
                             </h2>
@@ -154,7 +154,7 @@ export default function Home() {
                                 FORMALISER.NET will always be free to start using. We may add a premium tier in the future, but we'll always have a free tier that will be more than enough for most people. We're not here to make money, and as much as we may need to given how sucky the UK government is at handling an economy, we'll never charge you for the core functionality of our service.
                             </p>
                         </div>
-                        <div className='flex flex-col items-center justify-center w-full mx-3 drop-shadow-2xl p-4 md:p-10 md:pb-0 my-2 md:my-0 rounded-2xl bg-slate-700'>
+                        <div className='flex flex-col items-center justify-center w-full mx-3 drop-shadow-2xl p-4 md:p-8 my-2 md:my-0 rounded-2xl bg-slate-700 transition-all duration-1000 hover:scale-105 hover:shadow-xl hover:shadow-slate-300/40'>
                             <h2 className={[styles.subtitle, poppinsBold.className].join(' ')}>
                                 Our service is open source, and we're always looking for contributors.
                             </h2>
@@ -172,17 +172,17 @@ export default function Home() {
                         </p>
                     </div>
                     <div className='flex flex-col items-center justify-center w-full p-10 notgrid'>
-                        <h2 className={['text-5xl drop-shadow-2xl',styles.cta, poppins.className].join(' ')}>
+                        <h2 className={['text-5xl drop-shadow-2xl', styles.cta, poppins.className].join(' ')}>
                             Simplify your contact forms today.
                         </h2>
                         <p className="text-lg text-center text-white-800">
                             We'll handle the backend for you.
                         </p>
                         <div className={tooltipStyles.tooltip}>
-                            <button className="text-xl text-center text-white-800 p-2 bg-gray-700 rounded-xl" onClick={() => {navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000);}}>
-                            <code className="text-base">
-                                {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
-                            </code>
+                            <button className="text-xl text-center text-white-800 p-2 bg-gray-700 rounded-xl" onClick={() => { navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000); }}>
+                                <code className="text-base">
+                                    {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
+                                </code>
                             </button>
                             <span className={tooltipStyles.tooltiptext}>{isCopied ? 'Copied!' : 'Click to copy URL'}</span>
                         </div>
@@ -190,7 +190,7 @@ export default function Home() {
                 </main>
                 <footer className={[styles.footer, 'flex flex-col items-center justify-center w-full h-3/10 bg-slate-900'].join(' ')}>
                     <div className='flex flex-col items-center justify-center w-full p-1 pt-5 notgrid'>
-                        <Image src="/formaliser.svg" width={500} height={100} alt="FORMALISER.NET" className='shadow-lg bg-slate-400 rounded-2xl shadow-slate-300'/>
+                        <Image src="/formaliser.svg" width={500} height={100} alt="FORMALISER.NET" className='shadow-lg bg-slate-400 rounded-2xl shadow-slate-300' />
                         <p className="text-lg text-center text-white-800 mt-2">
                             © 2023 FORMALISER.NET
                         </p>
@@ -199,7 +199,7 @@ export default function Home() {
                         <p className={["text-lg text-center text-white-800", inter.className].join(' ')}>
                             Made with <span className="text-red-500">❤</span> by <Link className='underline hover:no-underline' href="https://marrtin.com">MAЯTÍN</Link>.
                         </p>
-                    </div>  
+                    </div>
                 </footer>
             </div>
         </>

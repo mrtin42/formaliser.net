@@ -14,6 +14,23 @@
     align-items: center;
 }
 
+.Cheader {
+    background: transparent;
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .Cheader {
+        height: 10vh;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .header {
         height: 14rem;
@@ -111,7 +128,8 @@
     color: #fff;
     font-size: 2rem;
     text-align: center;
-    margin: 0;
+    margin: 1;
+    padding: 1rem;
     font-family: 'Poppins', sans-serif;
     text-shadow: 7px 7px 12px rgba(0, 0, 0, 0.6);
 }

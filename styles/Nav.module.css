@@ -5,8 +5,7 @@
     align-items: center;
     padding: 0 1rem;
     width: 100vw;
-    position: sticky;
-    top: 10%;
+    position: fixed;
     z-index: 100;
     transition: all 0.2s ease-in-out;
 }

@@ -89,14 +89,14 @@ export async function POST(req: NextRequest) {
         if (error) {
             console.log('Terminating email render: server error.');
             console.error(error);
-            const errorHtmlPath = path.join(process.cwd(), 'public', 'error.html');
-            const errorHtml = fs.readFileSync(errorHtmlPath, 'utf8');
+            const errorHtmlPath = await path.join(process.cwd(), 'public', 'error.html');
+            const errorHtml = await fs.readFileSync(errorHtmlPath, 'utf8');
             return new Response(errorHtml, { status: 500, headers: { 'Content-Type': 'text/html' }  });
         }
         console.log('Email fully rendered and delivery successful.');
         console.log(info);
-        const successHtmlPath = path.join(process.cwd(), 'public', 'success.html');
-        const successHtml = fs.readFileSync(successHtmlPath, 'utf8');
+        const successHtmlPath = await path.join(process.cwd(), 'public', 'success.html');
+        const successHtml = await fs.readFileSync(successHtmlPath, 'utf8');
         return new Response(successHtml, { status: 200, headers: { 'Content-Type': 'text/html' }  });
     });
 }

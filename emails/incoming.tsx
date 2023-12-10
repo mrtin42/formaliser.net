@@ -40,7 +40,7 @@ export default function Email({ name, email, subject, message, extra }: EmailPro
                                 <h2 style={{ fontSize: '20px', fontWeight: 600, color: '#111827', padding: 0, margin: 0 }}>Subject: {subject}</h2>
                                 <h4 style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '10px 0' }}>From: {name} ({email})</h4>
                                 <p style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '10px 0' }}>* * *</p>
-                                <p style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '10px 0' }}>{message}</p>
+                                <p style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '10px 0', wordWrap: 'break-word' }}>{message}</p>
                             </div>
                             {extra ? (
                                 <>

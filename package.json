@@ -2,7 +2,7 @@
   "name": "formaliser",
   "version": "0.1.0",
   "scripts": {
-    "dev": "node devserver.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

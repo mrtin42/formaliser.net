@@ -190,7 +190,7 @@ export default function Home() {
                 </main>
                 <footer className={[styles.footer, 'flex flex-col items-center justify-center w-full h-3/10 bg-slate-900'].join(' ')}>
                     <div className='flex flex-col items-center justify-center w-full p-1 pt-5 notgrid'>
-                        <Image src="/formaliser.svg" width={500} height={100} alt="FORMALISER.NET" className='shadow-lg bg-slate-400 rounded-2xl shadow-slate-300' />
+                        <Image src="/formaliser_dark.svg" width={500} height={100} alt="FORMALISER.NET" />
                         <p className="text-lg text-center text-white-800 mt-2">
                             © 2023 FORMALISER.NET
                         </p>

@@ -2,11 +2,15 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { headers } from 'next/headers';
 import { useEffect, useState } from 'react'
 import styles from '@/styles/Nav.module.css'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+
+    const reqHeaders = headers();
+    let hostname = reqHeaders.get('host');
 
     useEffect(() => {
       const handleScroll = () => {
@@ -26,7 +30,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className={styles.nav + ' ' + (isScrolled ?`bg-slate-300/80     shadow-lg text-slate-900` : `bg-transparent text-white `)}>
+        <nav className={styles.nav + ' ' + (isScrolled ?`bg-slate-300/80     shadow-lg text-slate-900` : `bg-transparent text-white `) + ' ' + (hostname === 'beta.formaliser.net' ? 'pt-1/10' : '')}>
             <div className={styles.navwrapper}>
                 <div className={styles.logo}>
                     <Link href="/">

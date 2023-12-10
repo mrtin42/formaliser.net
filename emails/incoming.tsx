@@ -106,3 +106,5 @@ export default function Email({ name, email, subject, message, extra }: EmailPro
 //         </>
 //     )
 // }
+
+// tailwind sucks with react-email

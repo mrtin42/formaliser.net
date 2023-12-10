@@ -1,15 +1,13 @@
-'use client'
-
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import DevDisclaimer from '@/components/dev'
 import Navbar from '@/components/nav'
+import Tooltip from '@/components/tooltip'
+import Footer from '@/components/footer'
 import Email from '@/components/examplemail'
-import { Tooltip } from '@nextui-org/react'
-import { useState } from 'react'
 import { Inter, Poppins, Roboto } from 'next/font/google'
 import styles from '@/styles/Index.module.css'
-import tooltipStyles from '@/styles/Tooltip.module.css'
 // import { render } from '@react-email/render'
 
 const inter = Inter({ subsets: ['latin'] });
@@ -26,8 +24,6 @@ const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 // }
 
 export default function Home() {
-    const [isCopied, setIsCopied] = useState(false);
-
     return (
         <>
             <Head>
@@ -63,6 +59,7 @@ export default function Home() {
                 <meta property="og:site_name" content="FORMALISER.NET" />
             </Head>
             <div className={[styles.body, 'text-slate-100'].join(' ')}>
+                <DevDisclaimer />
                 <Navbar />
                 <header className={[styles.header, 'px-2 noneflex flex-col items-center justify-center w-full bg-slate-900'].join(' ')}>
                     <p className="md:pt-7" style={{ color: 'transparent' }}>.</p>
@@ -72,14 +69,11 @@ export default function Home() {
                     <p className={styles.subtitle}>
                         The simplest backend for your HTML contact forms.
                     </p>
-                    <div className={tooltipStyles.tooltip}>
-                        <button className="text-xs md:text-lg text-center text-white-800 md:p-2 bg-gray-700 rounded-lg md:rounded-xl" onClick={() => { navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000); }}>
+                    <Tooltip text='Click to copy URL'>
                             <code className="text-base">
                                 {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
                             </code>
-                        </button>
-                        <span className={tooltipStyles.tooltiptext}>{isCopied ? 'Copied!' : 'Click to copy URL'}</span>
-                    </div>
+                    </Tooltip>
                 </header>
                 <main className={[styles.main, 'flex flex-col items-center justify-center w-full'].join(' ')}>
                     {/* put a useless tag here just for scroll button */}
@@ -178,29 +172,14 @@ export default function Home() {
                         <p className="text-lg text-center text-white-800">
                             We'll handle the backend for you.
                         </p>
-                        <div className={tooltipStyles.tooltip}>
-                            <button className="text-xl text-center text-white-800 p-2 bg-gray-700 rounded-xl" onClick={() => { navigator.clipboard.writeText('https://formaliser.net/send?to=your@emailaddress.com'); setIsCopied(true); setTimeout(() => setIsCopied(false), 2000); }}>
+                        <Tooltip text='Click to copy URL'>
                                 <code className="text-base">
                                     {`<form action="https://formaliser.net/send?to=your@emailaddress.com" method="POST">`}
                                 </code>
-                            </button>
-                            <span className={tooltipStyles.tooltiptext}>{isCopied ? 'Copied!' : 'Click to copy URL'}</span>
-                        </div>
+                        </Tooltip>
                     </div>
                 </main>
-                <footer className={[styles.footer, 'flex flex-col items-center justify-center w-full h-3/10 bg-slate-900'].join(' ')}>
-                    <div className='flex flex-col items-center justify-center w-full p-1 pt-5 notgrid'>
-                        <Image src="/formaliser_dark.svg" width={500} height={100} alt="FORMALISER.NET" />
-                        <p className="text-lg text-center text-white-800 mt-2">
-                            © 2023 FORMALISER.NET
-                        </p>
-                    </div>
-                    <div className='flex flex-col items-center justify-center w-full mt-1 p-1 pb-5 notgrid'>
-                        <p className={["text-lg text-center text-white-800", inter.className].join(' ')}>
-                            Made with <span className="text-red-500">❤</span> by <Link className='underline hover:no-underline' href="https://marrtin.com">MAЯTÍN</Link>.
-                        </p>
-                    </div>
-                </footer>
+                <Footer />
             </div>
         </>
     )

@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
         console.log('Email plain text render successful.')
 
         const emailOptions = {
-            from: 'incoming@formaliser.net',
+            from: 'FORMALISER.NET <incoming@formaliser.net>',
             sender: 'FORMALISER.NET <incoming@formaliser.net>',
             to: sendto,
             replyTo: `${name} <${email}>`, // this is the only way to get the name to show up in the reply-to field

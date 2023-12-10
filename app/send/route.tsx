@@ -40,19 +40,22 @@ export async function POST(req: NextRequest) {
 
     if (!sendto) {
         console.log('Terminating email render: no recipient specified.')
-        const html = await axiosGet('https://beta.formaliser.net/norecipient.html');
+        const htmlPath = path.join(process.cwd(), 'public', 'norecipient.html');
+        const html = fs.readFileSync(htmlPath, 'utf8');
         return new Response(html, { status: 400, headers: { 'Content-Type': 'text/html' } });
     }
 
     if (!name || !email || !subject || !message) {
         console.log('Terminating email render: empty fields.')
-        const html = await axiosGet('https://beta.formaliser.net/emptyfields.html');
+        const htmlPath = path.join(process.cwd(), 'public', 'emptyfields.html');
+        const html = fs.readFileSync(htmlPath, 'utf8');
         return new Response(html, { status: 400, headers: { 'Content-Type': 'text/html' }  });
     }
 
     if (!email.includes('@') || !email.includes('.')) {
         console.log('Terminating email render: invalid sender email.')
-        const html = await axiosGet('https://beta.formaliser.net/invalidemail.html');
+        const htmlPath = path.join(process.cwd(), 'public', 'invalidemail.html');
+        const html = fs.readFileSync(htmlPath, 'utf8');
         return new Response(html, { status: 400, headers: { 'Content-Type': 'text/html' }  });
     }
     let additionalFields = '';
@@ -86,12 +89,14 @@ export async function POST(req: NextRequest) {
         if (error) {
             console.log('Terminating email render: server error.');
             console.error(error);
-            const errorHtml = await axiosGet('https://beta.formaliser.net/servererror.html');
+            const errorHtmlPath = path.join(process.cwd(), 'public', 'error.html');
+            const errorHtml = fs.readFileSync(errorHtmlPath, 'utf8');
             return new Response(errorHtml, { status: 500, headers: { 'Content-Type': 'text/html' }  });
         }
         console.log('Email fully rendered and delivery successful.');
         console.log(info);
-        const successHtml = await axiosGet('https://beta.formaliser.net/success.html');
+        const successHtmlPath = path.join(process.cwd(), 'public', 'success.html');
+        const successHtml = fs.readFileSync(successHtmlPath, 'utf8');
         return new Response(successHtml, { status: 200, headers: { 'Content-Type': 'text/html' }  });
     });
 }

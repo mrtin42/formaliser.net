@@ -41,19 +41,19 @@ export async function POST(req: NextRequest) {
 
         if (!sendto) {
             console.log('Terminating email render: no recipient specified.')
-            const html = await axiosGet('https://beta.formaliser.net/norecipient.html');
+            const html = await axiosGet('https://formaliser.net/norecipient.html');
             return new Response(html, { status: 400, headers: { 'Content-Type': 'text/html' } });
         }
 
         if (!name || !email || !subject || !message) {
             console.log('Terminating email render: empty fields.')
-            const html = await axiosGet('https://beta.formaliser.net/emptyfields.html');
+            const html = await axiosGet('https://formaliser.net/emptyfields.html');
             return new Response(html, { status: 400, headers: { 'Content-Type': 'text/html' } });
         }
 
         if (!email.includes('@') || !email.includes('.')) {
             console.log('Terminating email render: invalid sender email.')
-            const html = await axiosGet('https://beta.formaliser.net/invalidemail.html');
+            const html = await axiosGet('https://formaliser.net/invalidemail.html');
             return new Response(html, { status: 400, headers: { 'Content-Type': 'text/html' } });
         }
         let additionalFields = '';
@@ -84,12 +84,12 @@ export async function POST(req: NextRequest) {
 
         await transporter.sendMail(emailOptions);
         console.log('Email render and delivery successful.')
-        const successHtml = await axiosGet('https://beta.formaliser.net/success.html');
+        const successHtml = await axiosGet('https://formaliser.net/success.html');
         return new Response(successHtml, { status: 200, headers: { 'Content-Type': 'text/html' } });
     } catch (error) {
         console.log('Terminating email render: server error.')
         console.error(error);
-        const errorHtml = await axiosGet('https://beta.formaliser.net/servererror.html');
+        const errorHtml = await axiosGet('https://formaliser.net/servererror.html');
         return new Response(errorHtml, { status: 500, headers: { 'Content-Type': 'text/html' } });
     }
 }

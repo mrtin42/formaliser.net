@@ -50,12 +50,12 @@ export default function Home() {
                 <meta name="twitter:creator" content="@t_ub3" />
                 <meta name="twitter:title" content="FORMALISER.NET" />
                 <meta name="twitter:description" content="The simplest backend for your HTML contact forms." />
-                <meta name="twitter:image" content="https://beta.formaliser.net/og.png" />
+                <meta name="twitter:image" content="https://formaliser.net/og.png" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="FORMALISER.NET" />
                 <meta property="og:description" content="The simplest backend for your HTML contact forms." />
-                <meta property="og:image" content="https://beta.formaliser.net/og.png" />
-                <meta property="og:url" content="https://beta.formaliser.net" />
+                <meta property="og:image" content="https://formaliser.net/og.png" />
+                <meta property="og:url" content="https://formaliser.net" />
                 <meta property="og:site_name" content="FORMALISER.NET" />
             </Head>
             <div className={[styles.body, 'text-slate-100'].join(' ')}>

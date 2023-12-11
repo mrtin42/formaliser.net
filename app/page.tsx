@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import Metadata from '@/components/meta'
 import DevDisclaimer from '@/components/dev'
 import Navbar from '@/components/nav'
 import Tooltip from '@/components/tooltip'
@@ -34,29 +35,7 @@ export default function Home() {
                 <link style={{}} rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" />
                 <link style={{}} rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
                 <link style={{}} rel="stylesheet" href="/failwind.css" />
-                <link style={{}} rel="icon" href="/favicon.ico" />
-                <meta name="keywords" content="formaliser, formaliser.net, formaliser, forms, form, html, backend, contact, contact form, contact form backend, html form, html form backend, html contact form" />
-                <meta name="author" content="MBFRIAS" />
-                <meta name="robots" content="index, follow" />
-                <meta name="googlebot" content="index, follow" />
-                <meta name="google" content="notranslate" />
-                <meta name="google" content="nositelinkssearchbox" />
-                <meta name="generator" content="marrtin.com using Next.js" />
-                <meta name="format-detection" content="telephone=no" />
-                <meta name="msapplication-TileColor" content="#111827" />
-                <meta name="theme-color" content="#111827" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@t_ub3" />
-                <meta name="twitter:creator" content="@t_ub3" />
-                <meta name="twitter:title" content="FORMALISER.NET" />
-                <meta name="twitter:description" content="The simplest backend for your HTML contact forms." />
-                <meta name="twitter:image" content="https://formaliser.net/og.png" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="FORMALISER.NET" />
-                <meta property="og:description" content="The simplest backend for your HTML contact forms." />
-                <meta property="og:image" content="https://formaliser.net/og.png" />
-                <meta property="og:url" content="https://formaliser.net" />
-                <meta property="og:site_name" content="FORMALISER.NET" />
+                <Metadata />
             </Head>
             <div className={[styles.body, 'text-slate-100'].join(' ')}>
                 <DevDisclaimer />

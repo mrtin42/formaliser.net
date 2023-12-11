@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
+import Metadata from '@/components/meta';
 import DevDisclaimer from '@/components/dev';
 import Navbar from '@/components/nav';
 import SendButton from '@/components/sendbtn';
@@ -28,7 +29,7 @@ export default function Contact() {
                 <meta name="description" content="Contact FORMALISER.NET." />
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <script src="https://kit.fontawesome.com/3c4e7a03d3.js" crossOrigin="anonymous"></script>
+                <Metadata />
             </Head>
             <div className={[styles.body,'text-slate-100'].join(' ')}>
                 <DevDisclaimer />   

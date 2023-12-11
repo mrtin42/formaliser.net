@@ -148,7 +148,7 @@ export default function Contact() {
                             Or use this form
                         </h2>
                         <p className='text-xs text-white text-center'>(you'll never guess what backend we're using)</p>
-                        <form className={[styles.form, 'flex flex-col items-center justify-center w-full p-2 px-10'].join(' ')} action="/send?to=martin@mbfrias.co.uk" method="POST" suppressHydrationWarning={true}>
+                        <form className={[styles.form, 'flex flex-col items-center justify-center w-full p-2 px-10'].join(' ')} action="/send?to=info@formaliser.net" method="POST" suppressHydrationWarning={true}>
                             <label className='text-white text-xl font-bold' htmlFor="name">Name</label>
                             <input className={[styles.input, 'w-full rounded-xl p-2 my-1 text-black text-lg'].join(' ')} type="text" name="name" id="name" placeholder="John Doe" />
                             <label className='text-white text-xl font-bold' htmlFor="email">Email</label>

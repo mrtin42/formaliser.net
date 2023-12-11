@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
 
         const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />);
         console.log('Email render successful.')
-        const plain = `NEW FORMALISER.NET MESSAGE\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}\nThis message is better viewed on a client that supports HTML emails.`
+        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />, { plainText: true, });
         console.log('Email plain text render successful.')
 
         const emailOptions = {

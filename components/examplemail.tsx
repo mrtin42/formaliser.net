@@ -27,7 +27,7 @@ export default function Email({ name, email, subject, message }: EmailProps) {
                         <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0 20px' }}>
                             <header style={{ padding: '5px 0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <Img src="https://formaliser.net/formaliser.svg" alt="FORMALISER.NET" width={250} height={80} />
+                                    <Img src="/formaliser.svg" alt="FORMALISER.NET" width={250} height={80} />
                                 </div>
                             </header>
                             <div style={{ padding: '10px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>

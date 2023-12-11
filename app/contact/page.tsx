@@ -30,7 +30,7 @@ export default function Contact() {
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <script src="https://kit.fontawesome.com/3c4e7a03d3.js" crossOrigin="anonymous"></script>
             </Head>
-            <div className={[styles.body].join(' ')}>
+            <div className={[styles.body,'text-slate-100'].join(' ')}>
                 <DevDisclaimer />   
                 <Navbar />
                 <header className={styles.Cheader}>

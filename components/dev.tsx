@@ -8,7 +8,7 @@ export default function DevDisclaimer() {
         <>
             {hostname === 'beta.formaliser.net' ? (
                 <div className='sticky top-0 z-50 flex flex-col items-center justify-center w-full h-1/10 bg-slate-900'>
-                    <p className='text-lg text-center text-white-800'>
+                    <p className='text-lg text-center text-white-800 my-1'>
                         You are currently using the beta version of FORMALISER.NET. Please be aware that this version is not yet stable and may contain bugs. If you find any bugs, please report them to <a className='underline hover:no-underline' href="mailto:info@formaliser.net">info@formaliser.net</a>.
                     </p>
                 </div>

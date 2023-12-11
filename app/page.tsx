@@ -6,6 +6,7 @@ import Navbar from '@/components/nav'
 import Tooltip from '@/components/tooltip'
 import Footer from '@/components/footer'
 import Email from '@/components/examplemail'
+import { Metadata } from 'next'
 import { Inter, Poppins, Roboto } from 'next/font/google'
 import styles from '@/styles/Index.module.css'
 // import { render } from '@react-email/render'
@@ -22,6 +23,35 @@ const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 //     )
 
 // }
+
+export const metadata: Metadata = {
+    twitter: {
+        card: 'summary_large_image',
+        site: '@t_ub3',
+        creator: '@t_ub3',
+        images: ['https://formaliser.net/og.png']
+    },
+    openGraph: {
+        type: 'website',
+        url: 'https://formaliser.net',
+        title: 'FORMALISER.NET',
+        description: 'Free and open source webform delivery',
+        images: [
+            {
+                url: 'https://formaliser.net/og.png',
+                width: 1200,
+                height: 630,
+                alt: 'FORMALISER.NET',
+            },
+        ],
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    title: 'FORMALISER.NET',
+    description: 'Free and open source webform delivery',
+}
 
 export default function Home() {
     return (

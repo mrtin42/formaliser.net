@@ -7,6 +7,7 @@ import Navbar from '@/components/nav';
 import SendButton from '@/components/sendbtn';
 import Footer from '@/components/footer';
 import styles from '@/styles/Index.module.css';
+import { Metadata } from 'next';
 import { Inter, Poppins, Roboto } from 'next/font/google';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +18,35 @@ const inter = Inter({ subsets: ['latin'] });
 const poppins = Poppins({ weight: '400', subsets: ['latin'] });
 const poppinsBold = Poppins({ weight: '700', subsets: ['latin'] });
 const roboto = Roboto({ weight: '400', subsets: ['latin'] });
+
+export const metadata: Metadata = {
+    twitter: {
+        card: 'summary_large_image',
+        site: '@t_ub3',
+        creator: '@t_ub3',
+        images: ['https://formaliser.net/og.png']
+    },
+    openGraph: {
+        type: 'website',
+        url: 'https://formaliser.net',
+        title: 'Contact || FORMALISER.NET',
+        description: 'Free and open source webform delivery',
+        images: [
+            {
+                url: 'https://formaliser.net/og.png',
+                width: 1200,
+                height: 630,
+                alt: 'FORMALISER.NET',
+            },
+        ],
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    title: 'Contact || FORMALISER.NET',
+    description: 'Free and open source webform delivery',
+}
 
 export default function Contact() {
     // const [x, setx] = useState(''); // i'll see if theres any use for usestate on this page later

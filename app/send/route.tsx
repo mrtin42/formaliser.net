@@ -4,17 +4,18 @@ import nodemailer from 'nodemailer';
 import axios from 'axios';
 import { headers } from 'next/headers';
 import { NextRequest } from 'next/server';
-const qs = require('querystring');
+
+const { SMTP_HOST, SMTP_USER, SMTP_PASS } = process.env;
 
 // ---------------------------------------------------------------------------------------------
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host: SMTP_HOST,
     port: 587,
     secure: false,
     auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: SMTP_USER,
+        pass: SMTP_PASS,
     }
 });
 
@@ -88,9 +89,9 @@ export async function POST(req: NextRequest) {
         }
     
 
-        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={formOrigin} />);
+        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={origin} />);
         console.log('Email render successful.')
-        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={formOrigin} />, { plainText: true, });
+        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={origin} />, { plainText: true, });
         console.log('Email plain text render successful.')
 
         const emailOptions = {

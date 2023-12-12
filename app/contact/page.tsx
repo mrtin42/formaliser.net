@@ -153,7 +153,7 @@ export default function Contact() {
                             <input className={[styles.input, 'w-full rounded-xl p-2 my-1 text-black text-lg'].join(' ')} type="text" name="name" id="name" placeholder="John Doe" />
                             <label className='text-white text-xl font-bold' htmlFor="email">Email</label>
                             <input className={[styles.input, 'w-full rounded-xl p-2 my-1 text-black text-lg'].join(' ')} type="email" name="email" id="email" placeholder="panic@thedis.co" suppressHydrationWarning={true} />
-                            <label className='text-white text-xl font-bold' htmlFor="message">Subject</label>
+                            <label className='text-white text-xl font-bold' htmlFor="subject">Subject</label>
                             <input className={[styles.input, 'w-full rounded-xl p-2 my-1 text-black text-lg'].join(' ')} type="text" name="subject" id="subject" placeholder="Help with... Regarding..." />
                             <label className='text-white text-xl font-bold' htmlFor="message">Message</label>
                             <textarea className={[styles.input, 'w-full rounded-xl p-2 my-1 text-black text-lg'].join(' ')} name="message" id="message" placeholder="According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible.x" />

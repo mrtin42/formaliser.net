@@ -28,7 +28,11 @@ export async function POST(req: NextRequest) {
         const rHead = headers();
         try {
             const httpRef = rHead.get('referer');
-            const referrer = httpRef.replace('https://', '');
+            try {
+                const referrer = httpRef.replce('https://', '');
+            } catch (e) {
+                console.log('ref parse error');
+                const referrer = 'NO REFERRER SPECIFIED';
         } catch (e) {
             console.log('no ref header');
             const referrer: string = 'NO REFERRER SPECIFIED';

@@ -26,7 +26,8 @@ const axiosGet = async (url: string) => {
 export async function POST(req: NextRequest) {
     try {
         const rHead = headers();
-        const referrer = rHead.get('referrer');
+        const httpRef = rHead.get('referer');
+        const referrer = httpRef.replace('https://', '');
         
         const formData = await req.formData();
         const name: any = formData.get('name');

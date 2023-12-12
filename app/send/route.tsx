@@ -2,6 +2,7 @@ import Email from "@/emails/incoming";
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
+import { headers } from 'next/headers';
 import { NextRequest } from 'next/server';
 const qs = require('querystring');
 
@@ -23,9 +24,28 @@ const axiosGet = async (url: string) => {
 };
 
 export async function POST(req: NextRequest) {
-
-
     try {
+        // get origin from request headers
+        const headersList = headers();
+        try {
+            var formOrigin: any = headersList.get('origin');
+        } catch (error) {
+            console.log('No origin specified: attempting to get origin from referer header.')
+            try {
+                var formOrigin: any = headersList.get('referer');
+            } catch (error) {
+                console.log('No referer header specified: defaulting full string to a disclaimer origin.')
+                var formOrigin: any = false;
+            }
+        }
+
+        if (formOrigin === false) {
+            const origin: string = "This form was submitted from an unknown origin. It is possible that this submission was not sent from a HTML form, or that the origin was spoofed.";
+        } else {
+            const origin: string = `This form was submitted from ${formOrigin}.`;
+        }
+
+
         const formData = await req.formData();
         const name: any = formData.get('name');
         const email: any = formData.get('email');
@@ -68,9 +88,9 @@ export async function POST(req: NextRequest) {
         }
     
 
-        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />);
+        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={formOrigin} />);
         console.log('Email render successful.')
-        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />, { plainText: true, });
+        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={formOrigin} />, { plainText: true, });
         console.log('Email plain text render successful.')
 
         const emailOptions = {

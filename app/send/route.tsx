@@ -26,19 +26,7 @@ const axiosGet = async (url: string) => {
 export async function POST(req: NextRequest) {
     try {
         const rHead = headers();
-        try {
-            const httpRef = rHead.get('referer');
-            try {
-                const referrer = httpRef.replce('https://', '');
-            } catch (e) {
-                console.log('ref parse error');
-                const referrer = 'NO REFERRER SPECIFIED';
-            }
-        } catch (e) {
-            console.log('no ref header');
-            const referrer: string = 'NO REFERRER SPECIFIED';
-        }
-        
+
         const formData = await req.formData();
         const name: any = formData.get('name');
         const email: any = formData.get('email');
@@ -81,9 +69,9 @@ export async function POST(req: NextRequest) {
         }
     
 
-        const html = render(<Email name={name} email={email} subject={subject} message={message} ref={referrer} extra={additionalFields} />);
+        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />);
         console.log('Email render successful.')
-        const plain = render(<Email name={name} email={email} subject={subject} message={message} ref={referrer} extra={additionalFields} />, { plainText: true, });
+        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />, { plainText: true, });
         console.log('Email plain text render successful.')
 
         const emailOptions = {

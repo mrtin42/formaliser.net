@@ -2,7 +2,6 @@ import Email from "@/emails/incoming";
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
-import { headers } from 'next/headers';
 import { NextRequest } from 'next/server';
 const qs = require('querystring');
 
@@ -24,9 +23,9 @@ const axiosGet = async (url: string) => {
 };
 
 export async function POST(req: NextRequest) {
-    try {
-        const rHead = headers();
 
+
+    try {
         const formData = await req.formData();
         const name: any = formData.get('name');
         const email: any = formData.get('email');

@@ -26,8 +26,13 @@ const axiosGet = async (url: string) => {
 export async function POST(req: NextRequest) {
     try {
         const rHead = headers();
-        const httpRef = rHead.get('referer');
-        const referrer = httpRef.replace('https://', '');
+        try {
+            const httpRef = rHead.get('referer');
+            const referrer = httpRef.replace('https://', '');
+        } catch (e) {
+            console.log('no ref header');
+            const referrer: string = 'NO REFERRER SPECIFIED';
+        }
         
         const formData = await req.formData();
         const name: any = formData.get('name');

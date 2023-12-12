@@ -2,6 +2,7 @@ import Email from "@/emails/incoming";
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
+import { headers } from 'next/headers';
 import { NextRequest } from 'next/server';
 const qs = require('querystring');
 
@@ -23,9 +24,10 @@ const axiosGet = async (url: string) => {
 };
 
 export async function POST(req: NextRequest) {
-
-
     try {
+        const rHead = headers();
+        const referrer = rHead.get('referrer');
+        
         const formData = await req.formData();
         const name: any = formData.get('name');
         const email: any = formData.get('email');
@@ -68,9 +70,9 @@ export async function POST(req: NextRequest) {
         }
     
 
-        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />);
+        const html = render(<Email name={name} email={email} subject={subject} message={message} ref={referrer} extra={additionalFields} />);
         console.log('Email render successful.')
-        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />, { plainText: true, });
+        const plain = render(<Email name={name} email={email} subject={subject} message={message} ref={referrer} extra={additionalFields} />, { plainText: true, });
         console.log('Email plain text render successful.')
 
         const emailOptions = {

@@ -33,6 +33,7 @@ export async function POST(req: NextRequest) {
             } catch (e) {
                 console.log('ref parse error');
                 const referrer = 'NO REFERRER SPECIFIED';
+            }
         } catch (e) {
             console.log('no ref header');
             const referrer: string = 'NO REFERRER SPECIFIED';

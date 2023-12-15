@@ -28,22 +28,26 @@ export async function POST(req: NextRequest) {
     try {
         // get origin from request headers
         const headersList = headers();
+        console.log('Headers obtained; attempting to get origin from origin header.')
         try {
-            var formOrigin: any = headersList.get('origin');
+            var formOriginHeader: any = headersList.get('origin');
         } catch (error) {
             console.log('No origin specified: attempting to get origin from referer header.')
             try {
-                var formOrigin: any = headersList.get('referer');
+                var formOriginHeader: any = headersList.get('referer');
             } catch (error) {
                 console.log('No referer header specified: defaulting full string to a disclaimer origin.')
-                var formOrigin: any = false;
+                var formOriginHeader: any = false;
             }
         }
-
-        if (formOrigin === false) {
-            const origin: string = "This form was submitted from an unknown origin. It is possible that this submission was not sent from a HTML form, or that the origin was spoofed.";
+        console.log('Origin obtained: ' + formOriginHeader)
+        formOriginHeader = formOriginHeader.replace('https://', '');
+        formOriginHeader = formOriginHeader.replace('http://', '');
+        formOriginHeader = formOriginHeader.replace('www.', '');
+        if (formOriginHeader === false) {
+            var origin: string = "This form was submitted from an unknown origin. It is possible that this submission was not sent from a HTML form, or that the origin was spoofed.";
         } else {
-            const origin: string = `This form was submitted from ${formOrigin}.`;
+            var origin: string = `This form was submitted from ${formOriginHeader}.`;
         }
 
 
@@ -89,9 +93,9 @@ export async function POST(req: NextRequest) {
         }
     
 
-        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={origin} />);
+        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} origin={origin} />);
         console.log('Email render successful.')
-        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} ref={origin} />, { plainText: true, });
+        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} origin={origin} />, { plainText: true, });
         console.log('Email plain text render successful.')
 
         const emailOptions = {

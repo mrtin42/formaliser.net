@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
         console.log('Origin obtained: ' + formOriginHeader)
         formOriginHeader = formOriginHeader.replace('https://', '');
         formOriginHeader = formOriginHeader.replace('http://', '');
-        formOriginHeader = formOriginHeader.replace('www.', '');
+    
         if (formOriginHeader === false) {
             var origin: string = "This form was submitted from an unknown origin. It is possible that this submission was not sent from a HTML form, or that the origin was spoofed.";
         } else {

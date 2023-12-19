@@ -30,7 +30,7 @@ export default function Dashboard() {
                         Welcome to the <span className={styles.brandtitle}>FORMALISER.NET</span> dashboard.
                     </h1>
                     <p className="text-3xl font-medium drop-shadow-lg">
-                        You are currently logged in as {session.user.email}. <Link href="/api/auth/signout" className='underline hover:no-underline'>Logout</Link>
+                        You are currently logged in as {session?.user?.email}. <Link href="/api/auth/signout" className='underline hover:no-underline'>Logout</Link>
                     </p>
                 </header>
                 <main className="flex flex-col items-center justify-center w-full flex-1 px-2 text-center rounded-3xl bg-slate-300 text-slate-900">
@@ -38,7 +38,7 @@ export default function Dashboard() {
                         <h2 className="text-4xl font-bold">Configuration</h2>
                     </div>
                     <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-                        <Domains uemail={session.user.email} />
+                        <Domains uemail={session?.user?.email} />
                     </div>
                 </main>
             </div>

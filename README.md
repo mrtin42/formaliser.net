@@ -1,5 +1,5 @@
 <a href="https://beta.formaliser.net/">
-    <img src="https://beta.formaliser.net/readme.png" alt="Formaliser" width="100%">
+    <img src="https://formaliser.net/readme.png" alt="FORMALISER.NET" align="center" width="100%">
 </a>
 <h1 align="center">FORMALISER.NET</h1>
 <a href="https://beta.formaliser.net/">FORMALISER.NET</a> is a free service powered by Next.js and Vercel. It's a simple backend that parses and sends HTML forms to your email, without any frontend code. It's a great solution for your personal website, blog, or any other static website.

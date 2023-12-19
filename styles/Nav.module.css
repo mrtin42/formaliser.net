@@ -10,6 +10,18 @@
     transition: all 0.2s ease-in-out;
 }
 
+.dnav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100vw;
+    position: static;
+    z-index: 100;
+    transition: all 0.2s ease-in-out; 
+}
+
 @media screen and (max-width: 768px) {
     .nav {
         position: static;

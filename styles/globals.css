@@ -2,23 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* how can i get vscode to stop complaining about this? */
+/* how can i get vscode to stop complaining about this? tailwindcss is installed */
 
 :root {
+  --linear-gradient-angle: 109.6deg;
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 48, 207, 208;
+  --background-end-rgb: 51, 8, 103;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+    var(--linear-gradient-angle),
+    rgb(var(--background-start-rgb)) 11.2%,
+    rgb(var(--background-end-rgb)) 92.5%
+  );
+  background-attachment: fixed;
 }

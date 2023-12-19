@@ -40,3 +40,6 @@ next-env.d.ts
 
 # localhost ssl certs
 /certs
+
+# prisma migrations
+/prisma/migrations

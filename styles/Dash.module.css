@@ -1,0 +1,11 @@
+.shadow {
+    text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
+}
+
+.brandtitle {
+    text-shadow: 7px 7px 15px rgba(0, 0, 0, 1);
+}
+
+.dHead {
+    height: 40vh;
+}

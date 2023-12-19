@@ -2,8 +2,8 @@
   "name": "formaliser",
   "version": "0.1.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently --kill-others \"prisma generate && next dev --port 8888\" \"prisma studio --browser none\"",
+    "build": "prisma generate & next build",
     "start": "next start",
     "lint": "next lint",
     "devmail": "email dev -p 420"

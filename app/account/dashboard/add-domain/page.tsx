@@ -58,7 +58,7 @@ export default function AddDomain() {
                                         setLoading(true);
                                         const res: any = axios.post('/api/db/domains', {
                                             email: session?.user?.email,
-                                            domain: document.getElementById('domain')?.nodeValue
+                                            domain: document.getElementById('domain')?.value
                                         });
                                         console.log(res);
                                         if (res.data.status === 'success') {

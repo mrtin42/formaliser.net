@@ -2,18 +2,20 @@ import Email from "@/emails/incoming";
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import axios from 'axios';
+import { headers } from 'next/headers';
 import { NextRequest } from 'next/server';
-const qs = require('querystring');
+
+const { SMTP_HOST, SMTP_USER, SMTP_PASS } = process.env;
 
 // ---------------------------------------------------------------------------------------------
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host: SMTP_HOST,
     port: 587,
     secure: false,
     auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: SMTP_USER,
+        pass: SMTP_PASS,
     }
 });
 
@@ -23,9 +25,32 @@ const axiosGet = async (url: string) => {
 };
 
 export async function POST(req: NextRequest) {
-
-
     try {
+        // get origin from request headers
+        const headersList = headers();
+        console.log('Headers obtained; attempting to get origin from origin header.')
+        try {
+            var formOriginHeader: any = headersList.get('origin');
+        } catch (error) {
+            console.log('No origin specified: attempting to get origin from referer header.')
+            try {
+                var formOriginHeader: any = headersList.get('referer');
+            } catch (error) {
+                console.log('No referer header specified: defaulting full string to a disclaimer origin.')
+                var formOriginHeader: any = false;
+            }
+        }
+        console.log('Origin obtained: ' + formOriginHeader)
+        formOriginHeader = formOriginHeader.replace('https://', '');
+        formOriginHeader = formOriginHeader.replace('http://', '');
+    
+        if (formOriginHeader === false) {
+            var origin: string = "This form was submitted from an unknown origin. It is possible that this submission was not sent from a HTML form, or that the origin was spoofed.";
+        } else {
+            var origin: string = `This form was submitted from ${formOriginHeader}.`;
+        }
+
+
         const formData = await req.formData();
         const name: any = formData.get('name');
         const email: any = formData.get('email');
@@ -68,9 +93,9 @@ export async function POST(req: NextRequest) {
         }
     
 
-        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />);
+        const html = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} origin={origin} />);
         console.log('Email render successful.')
-        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} />, { plainText: true, });
+        const plain = render(<Email name={name} email={email} subject={subject} message={message} extra={additionalFields} origin={origin} />, { plainText: true, });
         console.log('Email plain text render successful.')
 
         const emailOptions = {

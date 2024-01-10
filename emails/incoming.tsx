@@ -6,10 +6,11 @@ interface EmailProps {
     email: string
     subject?: string
     message: string
+    origin: string
     extra?: string
 }
 
-export default function Email({ name, email, subject, message, extra }: EmailProps) {
+export default function Email({ name, email, subject, message, origin, extra }: EmailProps) {
     return (
         <>
             <Html lang="en">
@@ -28,7 +29,7 @@ export default function Email({ name, email, subject, message, extra }: EmailPro
                         <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0 20px' }}>
                             <header style={{ padding: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <Img src="https://formaliser.net/formaliser.svg" alt="FORMALISER.NET" width={150} height={40} />
+                                    <Img src="https://formaliser.net/formaliser.png" alt="FORMALISER.NET" width={150} height={40} />
                                 </div>
                             </header>
                             <div style={{ padding: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -56,6 +57,7 @@ export default function Email({ name, email, subject, message, extra }: EmailPro
                                 <p style={{ fontSize: '16px', fontWeight: 400, color: '#374151', padding: 0, margin: '5px 0' }}>Hit reply to respond to this message. The sender address will be automatically filled in by your email client.</p>
                             </div>
                             <footer style={{ padding: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', fontStyle: 'italic' }}>
+                                <p style={{ fontSize: '12px', fontWeight: 400, color: '#374151', padding: 0, margin: '1px 0' }}>{origin}</p>
                                 <p style={{ fontSize: '12px', fontWeight: 400, color: '#374151', padding: 0, margin: '1px 0' }}>HTML webforms powered by <a style={{ color: '#3B82F6', textDecoration: 'none' }} href="https://formaliser.net">FORMALISER.NET</a></p>
                                 <p style={{ fontSize: '12px', fontWeight: 400, color: '#374151', padding: 0, margin: '1px 0' }}>To unsubscribe from these emails, remove our URL from your webform action attribute.</p>
                             </footer>

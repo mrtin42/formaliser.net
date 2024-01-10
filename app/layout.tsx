@@ -19,7 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className='sticky top-0 z-50 flex flex-col items-center justify-center w-full h-1/10 bg-slate-900'>
+          <p className='text-lg text-center text-white-800 my-1'>
+            ALERT: Used FORMALISER.NET after November 1st 2023? Our mailing provider, Resend, recently has suffered a security breach. Your email address may have been exposed. Please take a moment to change your password, further info will be published by Resend when they deem it appropriate.
+          </p>
+        </div>
+        {children}
+      </body>
     </html>
   )
 }

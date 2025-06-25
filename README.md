@@ -1,3 +1,7 @@
+> # FORMALISER.net has been deprecated ⚠️
+> 
+> The project has been commonly marked as spam by email providers and is thus not worth maintaining any longer.
+
 <a href="https://beta.formaliser.net/">
     <img src="https://formaliser.net/readme.png" alt="FORMALISER.NET" align="center" width="100%">
 </a>
